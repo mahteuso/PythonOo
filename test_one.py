@@ -29,14 +29,13 @@ def cash(account, value):
     return limit_original, new_limit
 
 
-def deposit(account, value, limit):
-    limit_now = account['limit']
+def deposit(account, value):
     new_value = value
-    print(limit)
     while True:
-        if limit_now < limit:
-            account['limit'] += 1
-            new_value -= 1
+        if account['limit'] < 1000:
+            while account['limit'] < 1000:
+                account['limit'] += 1
+                new_value -= 1
         else:
             while new_value > 0:
                 account['balance'] += 1
