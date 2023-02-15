@@ -6,28 +6,28 @@ Create constructor method
 class Account:
 
     def __init__(self, number, user, balance, limit):
-        self.number = number
-        self.user = user
-        self.balance = balance
-        self.limit = limit
+        self.__number = number
+        self.__user = user
+        self.__balance = balance
+        self.__limit = limit
 
     def extract(self):
-        print(f"{self.user} your balance is ${self.balance}\n"
-              f"and your limit is ${self.limit}")
+        print(f"{self.__user} your balance is ${self.__balance}\n"
+              f"and your limit is ${self.__limit}")
 
     def cash(self, value):
-        new_limit = self.limit
-        limit_original = self.limit
-        if value >= self.balance:
-            new_value = value - self.balance
-            self.balance = 0
-            if new_value <= self.limit:
-                self.limit -= new_value
-                new_limit = self.limit
+        new_limit = self.__limit
+        limit_original = self.__limit
+        if value >= self.__balance:
+            new_value = value - self.__balance
+            self.__balance = 0
+            if new_value <= self.__limit:
+                self.__limit -= new_value
+                new_limit = self.__limit
             else:
                 print("You limit is lower, try another value!")
         else:
-            self.balance -= value
+            self.__balance -= value
         return limit_original, new_limit
 
     def deposit(self, value):
