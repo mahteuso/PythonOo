@@ -5,15 +5,16 @@ Create constructor method
 
 class Account:
 
-    def __init__(self, number, user, balance, limit):
+    def __init__(self, number, user, balance, limit, original_limit):
         self.__number = number
         self.__user = user
         self.__balance = balance
         self.__limit = limit
+        self.__original_limit = original_limit
 
     def extract(self):
         print(f"{self.__user} your balance is ${self.__balance}\n"
-              f"and your limit is ${self.__limit}")
+              f"and your limit is ${self.__original_limit}")
 
     def cash(self, value):
         new_limit = self.__limit
@@ -33,8 +34,8 @@ class Account:
     def deposit(self, value):
         new_value = value
         while True:
-            if self.__limit < 1000:
-                while self.__limit < 1000:
+            if self.__limit < self.__original_limit:
+                while self.__limit < self.__original_limit:
                     self.__limit += 1
                     new_value -= 1
             else:
@@ -46,3 +47,16 @@ class Account:
     def transfer(self, value, destiny):
         self.cash(value)
         destiny.deposit(value)
+
+    @property
+    def balance(self):
+        return self.__balance
+    @property
+    def limit(self):
+        return self.__limit
+    @property
+    def user(self):
+        return self.__user
+    @limit.setter
+    def limit(self, value):
+        self.__original_limit = value
