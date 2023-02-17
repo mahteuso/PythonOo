@@ -33,12 +33,16 @@ class Account:
     def deposit(self, value):
         new_value = value
         while True:
-            if self.limit < 1000:
-                while self.limit < 1000:
-                    self.limit += 1
+            if self.__limit < 1000:
+                while self.__limit < 1000:
+                    self.__limit += 1
                     new_value -= 1
             else:
                 while new_value > 0:
-                    self.balance += 1
+                    self.__balance += 1
                     new_value -= 1
                 break
+
+    def transfer(self, value, destiny):
+        self.cash(value)
+        destiny.deposit(value)
