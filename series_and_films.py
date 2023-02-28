@@ -19,16 +19,16 @@ class Program:
     def name(self, new_name):
         self._name = new_name.title()
 
-    def print_out(self):
-        print(f'{self._name} - {self.year} - likes: {self._likes}')
+    def __str__(self):
+        return f'{self._name} - {self.year} - likes: {self._likes}'
 class Film(Program):
     def __init__(self, name, year, duration):
         super().__init__(name, year)
         self.duration = duration
 
 
-    def print_out(self):
-        print(f'{self._name} - {self.year} - {self.duration}min - {self.likes} likes')
+    def __str__(self):
+        return f'{self._name} - {self.year} - {self.duration}min - {self.likes} likes'
 
 
 class Sitcom(Program):
@@ -37,8 +37,8 @@ class Sitcom(Program):
         self.seasons = seasons
 
 
-    def print_out(self):
-        print(f'{self._name} - {self.year} - {self.seasons} seasons - {self.likes} likes')
+    def __str__(self):
+        return f'{self._name} - {self.year} - {self.seasons} seasons - {self.likes} likes'
 
 
 
@@ -62,7 +62,7 @@ the_it_crowd.new_likes()
 the_it_crowd.new_likes()
 the_it_crowd.new_likes()
 
-set_list = [avangers, the_it_crowd, the_office, avatar]
+#set_list = [avangers, the_it_crowd, the_office, avatar]
 
-for program in set_list:
-    program.print_out()
+#for program in set_list:
+    print(program)
