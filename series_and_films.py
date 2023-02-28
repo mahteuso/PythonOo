@@ -42,7 +42,7 @@ class Sitcom(Program):
 
 
 
-avangers = Film('Avangers - infinity war', 2018, 160.0)
+avangers = Film('Avangers: infinity war', 2018, 160.0)
 the_it_crowd = Sitcom('The it crowd', 2006, 4)
 the_office = Sitcom("the office", 2005, 9)
 avatar = Film('avatar', 2009, 162.0)
