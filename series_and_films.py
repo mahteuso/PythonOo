@@ -44,7 +44,16 @@ class Sitcom(Program):
 
 avangers = Film('Avangers - infinity war', 2018, 160.0)
 the_it_crowd = Sitcom('The it crowd', 2006, 4)
-
+the_office = Sitcom("the office", 2005, 9)
+avatar = Film('avatar', 2009, 162.0)
+avatar.new_likes()
+avatar.new_likes()
+avatar.new_likes()
+avatar.new_likes()
+avatar.new_likes()
+avatar.new_likes()
+the_office.new_likes()
+the_office.new_likes()
 avangers.new_likes()
 avangers.new_likes()
 avangers.new_likes()
@@ -53,7 +62,7 @@ the_it_crowd.new_likes()
 the_it_crowd.new_likes()
 the_it_crowd.new_likes()
 
-set_list = [avangers, the_it_crowd]
+set_list = [avangers, the_it_crowd, the_office, avatar]
 
 for program in set_list:
     program.print_out()
