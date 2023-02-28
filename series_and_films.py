@@ -65,4 +65,4 @@ the_it_crowd.new_likes()
 #set_list = [avangers, the_it_crowd, the_office, avatar]
 
 #for program in set_list:
-    print(program)
+    #print(program)
