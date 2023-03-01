@@ -21,6 +21,12 @@ class Program:
 
     def __str__(self):
         return f'{self._name} - {self.year} - likes: {self._likes}'
+
+class Playlist(list):
+    def __init__(self, name, program):
+        self.name = name
+        super().__init__(program)
+
 class Film(Program):
     def __init__(self, name, year, duration):
         super().__init__(name, year)
@@ -54,6 +60,10 @@ avatar.new_likes()
 avatar.new_likes()
 the_office.new_likes()
 the_office.new_likes()
+the_office.new_likes()
+the_office.new_likes()
+avangers.new_likes()
+avangers.new_likes()
 avangers.new_likes()
 avangers.new_likes()
 avangers.new_likes()
@@ -62,7 +72,7 @@ the_it_crowd.new_likes()
 the_it_crowd.new_likes()
 the_it_crowd.new_likes()
 
-#set_list = [avangers, the_it_crowd, the_office, avatar]
-
-#for program in set_list:
-    #print(program)
+set_list = [avangers, the_it_crowd, the_office, avatar]
+playlist_weekend = Playlist('Weekend', set_list)
+for program in playlist_weekend.program:
+    print(program)
