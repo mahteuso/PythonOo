@@ -28,6 +28,9 @@ class Playlist:
         self.name = name
         self._program = program
 
+    def __getitem__(self, item):
+        return self._program[item]
+
     @property
     def matrix(self):
         return self._program
@@ -83,3 +86,5 @@ set_list = [avangers, the_it_crowd, the_office, avatar]
 playlist_weekend = Playlist('Weekend', set_list)
 for program in playlist_weekend:
     print(program)
+
+print(len(playlist_weekend))
