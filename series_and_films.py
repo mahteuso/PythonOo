@@ -34,11 +34,8 @@ class Playlist:
     @property
     def matrix(self):
         return self._program
-    @property
-    def len_matrix(self):
+    def __len__(self):
         return len(self._program)
-
-
 
 class Film(Program):
     def __init__(self, name, year, duration):
@@ -87,4 +84,4 @@ playlist_weekend = Playlist('Weekend', set_list)
 for program in playlist_weekend:
     print(program)
 
-print(len(playlist_weekend))
+print(f'\nThe size of the playlist is: {len(playlist_weekend)}')
