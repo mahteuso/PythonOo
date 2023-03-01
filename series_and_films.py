@@ -22,16 +22,25 @@ class Program:
     def __str__(self):
         return f'{self._name} - {self.year} - likes: {self._likes}'
 
-class Playlist(list):
+
+class Playlist:
     def __init__(self, name, program):
         self.name = name
-        super().__init__(program)
+        self._program = program
+
+    @property
+    def matrix(self):
+        return self._program
+    @property
+    def len_matrix(self):
+        return len(self._program)
+
+
 
 class Film(Program):
     def __init__(self, name, year, duration):
         super().__init__(name, year)
         self.duration = duration
-
 
     def __str__(self):
         return f'{self._name} - {self.year} - {self.duration}min - {self.likes} likes'
@@ -42,10 +51,8 @@ class Sitcom(Program):
         super().__init__(name, year)
         self.seasons = seasons
 
-
     def __str__(self):
         return f'{self._name} - {self.year} - {self.seasons} seasons - {self.likes} likes'
-
 
 
 avangers = Film('Avangers: infinity war', 2018, 160.0)
@@ -74,5 +81,5 @@ the_it_crowd.new_likes()
 
 set_list = [avangers, the_it_crowd, the_office, avatar]
 playlist_weekend = Playlist('Weekend', set_list)
-for program in playlist_weekend.program:
+for program in playlist_weekend:
     print(program)
