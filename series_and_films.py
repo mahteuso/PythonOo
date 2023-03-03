@@ -34,8 +34,10 @@ class Playlist:
     @property
     def matrix(self):
         return self._program
+
     def __len__(self):
         return len(self._program)
+
 
 class Film(Program):
     def __init__(self, name, year, duration):
@@ -81,7 +83,12 @@ the_it_crowd.new_likes()
 
 set_list = [avangers, the_it_crowd, the_office, avatar]
 playlist_weekend = Playlist('Weekend', set_list)
-for program in playlist_weekend:
-    print(program)
+new_movie = Film('Avangers : infinity war', 2018, 160.0)
 
-print(f'\nThe size of the playlist is: {len(playlist_weekend)}')
+search = input('Search: ').title()
+
+print(new_movie in playlist_weekend)
+
+for new in playlist_weekend:
+    if new.name[0:4] == search[0:4]:
+        print(new)
