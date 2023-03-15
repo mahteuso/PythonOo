@@ -1,6 +1,36 @@
 url = 'https://bytebank.com/cambio?moedaDestino=dolar&moedaOrigem=real'
 
+# getting the reference
+first_mark = url.find('?')
 
+# separating terms
+firt_term = url[:first_mark]
+final_term = url[first_mark + 1:]
+print(firt_term)
+print(f'{final_term}\n')
+
+# getting the value of a parameters
+second_mark = url.find('&')
+
+# work with the url
+enter_word = input("Enter a coin: ")
+second_term = url[first_mark + 1: second_mark]
+index_enter_word = url.find(enter_word)
+third_mark = url.find('&', index_enter_word)
+index_redeen_value = index_enter_word + (len(enter_word) + 1)
+
+if third_mark == -1:
+    third_term = url[second_mark + 1:]
+    print(third_term)
+    redeen_value_two = url[index_redeen_value:]
+    print(redeen_value_two)
+
+else:
+    print(f'{second_term}')
+    redden_value_one = url[index_redeen_value: second_mark]
+    print(f'{redden_value_one}\n')
+
+'''
 # getting the reference
 question_mark = url.find('?')
 
@@ -26,3 +56,4 @@ else:
     parameter_dolar = url[index_word:new_mark]
     print(f'\n{parameter_one}')
     print(parameter_dolar)
+'''
