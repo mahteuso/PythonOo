@@ -1,12 +1,19 @@
-url = 'https://bytebank.com/cambio?moedaDestino=dolar&moedaOrigem=real'
+url = 'https://bytebank.com/cambio?quantidade=100&moedaDestino=dolar&moedaOrigem=real'
+
+# URL sanitation
+url = url.strip()
+
+# URL validation
+if url == "":
+    raise ValueError("The URL is empty")
 
 # getting the reference
 first_mark = url.find('?')
 
 # separating terms
-firt_term = url[:first_mark]
+first_term = url[:first_mark]
 final_term = url[first_mark + 1:]
-print(firt_term)
+print(first_term)
 print(f'{final_term}\n')
 
 # getting the value of a parameters
