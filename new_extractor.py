@@ -3,9 +3,10 @@ url = 'https://bytebank.com/cambio?quantidade=100&moedaDestino=dolar&moedaOrigem
 parameter = input('Enter a parameter: ')
 # URL sanitation
 url = url.strip()
+print(url)
 
 # URL validation
-if url == '':
+if url == "":
     raise ValueError('The url is empty')
 
 # Separating url parameters

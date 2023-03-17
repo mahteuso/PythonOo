@@ -1,7 +1,15 @@
 class ParameterUrl:
-    def __init__(self, url):
-        self.url = url.strip()
+    def __init__(self, url, parameter):
+        self.url = self.url_sanitation(url)
+        self.parameter = parameter
         self.url_validation()
+
+
+    def url_sanitation(self, url):
+        if type(url) == str:
+            return url.strip()
+        else:
+            return ""
 
     def url_validation(self):
         if self.url == '':
@@ -26,9 +34,11 @@ class ParameterUrl:
             print(self.url[final_position_parameter: third_point])
 
 
-url = ParameterUrl('https://bytebank.com/cambio?quantidade=100&moedaDestino=dolar&moedaOrigem=real')
+#url = ParameterUrl('https://bytebank.com/cambio?quantidade=100&moedaDestino=dolar&moedaOrigem=real')
 parameter = input('Enter a parameter: ')
+url = ParameterUrl('https://bytebank.com/cambio?quantidade=100&moedaDestino=dolar&moedaOrigem=real', parameter)
 url.get_values_parameters(parameter)
+
 
 
 
