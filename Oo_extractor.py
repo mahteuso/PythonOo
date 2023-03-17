@@ -1,24 +1,11 @@
-import re
 class ParameterUrl:
-    def __init__(self, url, parameter):
-        self.url = self.url_sanitation(url)
-        self.parameter = parameter
+    def __init__(self, url):
+        self.url = url.strip()
         self.url_validation()
-
-
-    def url_sanitation(self, url):
-        if type(url) == str:
-            return url.strip()
-        else:
-            return ""
 
     def url_validation(self):
         if self.url == '':
             raise ValueError('The url is empty')
-        validation = re.compile('(http(s)?://)?(www.)?bytebank.com(.br)?/cambio')
-        if not validation.match(self.url):
-            raise ValueError('This url is invalid!')
-
 
     def separation_url(self):
         first_point = self.url.find('?')
@@ -38,20 +25,10 @@ class ParameterUrl:
             print(self.url[index_of_parameter:final_position_parameter])
             print(self.url[final_position_parameter: third_point])
 
-    def __str__(self):
-        return self.separation_url()
 
-    def __eq__(self, other):
-        return self.url == other.url
-
-#url = ParameterUrl('https://bytebank.com/cambio?quantidade=100&moedaDestino=dolar&moedaOrigem=real')
+url = ParameterUrl('https://bytebank.com/cambio?quantidade=100&moedaDestino=dolar&moedaOrigem=real')
 parameter = input('Enter a parameter: ')
-url = ParameterUrl('http://bytebank.com.br/cambio?quantidade=100&moedaDestino=dolar&moedaOrigem=real', parameter)
-url2 = ParameterUrl('http://bytebank.com.br/cambio?quantidade=100&moedaDestino=dolar&moedaOrigem=real', parameter)
 url.get_values_parameters(parameter)
-print(url)
-print(url.__eq__(url2))
-
 
 
 
