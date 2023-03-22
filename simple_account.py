@@ -94,6 +94,8 @@ list_students = [
     Student("Rodrigo", 411, 40)
 
 ]
+
+
 print('')
 print("Using a function Sorted")
 print(sorted(list_students))
@@ -108,6 +110,7 @@ for index, students in enumerate(list_students):
            temp = list_students[index]
            list_students[index] = list_students[i]
            list_students[i] = temp
+
 print(list_students)
 
 print('')
