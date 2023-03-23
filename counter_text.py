@@ -21,16 +21,23 @@ por-que-carros-nao-vao-baratear-nem-um-pouco-mesmo-sobrando-nos-patios.htm?cmpid
 """
 def read_text(text):
 
-    number_letters = Counter(text.lower())
+    number_of_text = Counter(text.lower())
+    total_appear = sum(number_of_text.values())
+    number_of_text = dict(number_of_text.most_common(10))
+
+    for letter, value in number_of_text.items():
+        print(f"{letter} => {(value/total_appear)*100:.2f}%")
+
+    '''number_letters = Counter(text.lower())
     total_appearance = sum(number_letters.values())
 
     number_letters = dict(number_letters.most_common(10))
 
     for letter, total in number_letters.items():
         print(f"{letter} => {(total/total_appearance)*100:.2f}%")
+    '''
 
-
-read_text(text_two)
+read_text(text_one)
 
 
 
